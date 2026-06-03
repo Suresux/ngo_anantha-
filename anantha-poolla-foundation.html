@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anantha Poolla Foundation — Mega Charity Run 2026</title>
+<meta name="description" content="5,000 runners. One cause. One historic day. Official India Book of Records attempt — June 28, 2026, Kali Mata Temple.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500;0,9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0705;--bg-2:#120c07;--ink:#fdf6ee;--ink-soft:#c9bcae;--ink-faint:#8a7d6f;
+    --orange:#ff6a1a;--orange-2:#ff9333;--amber:#ffc24b;--green:#27c08a;--magenta:#ff4d8d;
+    --line:rgba(255,255,255,.09);--glass:rgba(28,20,13,.6);
+    --grad:linear-gradient(105deg,#ff5a14 0%,#ff7a23 38%,#ffab3d 72%,#ffd36a 100%);
+    --grad-text:linear-gradient(100deg,#ff7a23,#ffc24b);
+    --maxw:1180px;--r:22px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Archivo',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(60vw 60vw at 78% -8%,rgba(255,106,26,.2),transparent 60%),radial-gradient(50vw 50vw at 8% 12%,rgba(255,77,141,.1),transparent 60%),radial-gradient(60vw 60vw at 50% 108%,rgba(39,192,138,.1),transparent 60%)}
+  body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:2}
+  section{position:relative;z-index:2}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--orange);color:#1a0d03}
+  img{display:block;max-width:100%}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange-2);display:inline-flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--orange)}
+  .eyebrow.c{justify-content:center}
+  h1,h2,h3{font-weight:900;letter-spacing:-.02em;line-height:1.04}
+  .em{font-family:'Fraunces',serif;font-style:italic;font-weight:500;letter-spacing:-.01em}
+  .grad{background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s cubic-bezier(.2,.7,.2,1);border-bottom:1px solid transparent}
+  nav.scrolled{background:var(--glass);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid var(--line)}
+  .navinner{max-width:1280px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .brand{display:flex;align-items:center;gap:12px;cursor:pointer}
+  .brand img{height:42px;width:auto;filter:drop-shadow(0 4px 14px rgba(255,106,26,.35))}
+  .navlinks{display:flex;align-items:center;gap:30px}
+  .navlinks a{font-size:14px;font-weight:600;color:var(--ink-soft);transition:.2s;cursor:pointer;position:relative}
+  .navlinks a:hover,.navlinks a.active{color:var(--ink)}
+  .navlinks a.active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--grad);border-radius:2px}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14px;padding:12px 22px;border-radius:100px;background:var(--grad);color:#1a0d03;box-shadow:0 8px 26px rgba(255,106,26,.38);transition:.25s;border:none;cursor:pointer;white-space:nowrap}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(255,106,26,.5)}
+  .btn.ghost{background:transparent;color:var(--ink);box-shadow:none;border:1px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--orange);background:rgba(255,106,26,.07);transform:translateY(-2px)}
+  .navtoggle{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:42px;height:42px;color:var(--ink);font-size:20px;cursor:pointer}
+
+  /* PAGE SWITCHING */
+  .page{display:none}
+  .page.active{display:block;animation:pageIn .7s cubic-bezier(.2,.8,.2,1)}
+  @keyframes pageIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+  /* SHARED */
+  .sec{padding:110px 0}
+  .sec-head{max-width:760px;margin-bottom:58px}
+  .sec-head.center{margin:0 auto 58px;text-align:center}
+  .sec-head h2{font-size:clamp(32px,5vw,58px);margin:16px 0}
+  .sec-head p{font-size:clamp(16px,2vw,19px);color:var(--ink-soft)}
+  .reveal{opacity:0;transform:translateY(34px);transition:1s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal[data-d="1"]{transition-delay:.08s}.reveal[data-d="2"]{transition-delay:.16s}
+  .reveal[data-d="3"]{transition-delay:.24s}.reveal[data-d="4"]{transition-delay:.32s}
+
+  /* HERO (home) */
+  .hero{min-height:100vh;display:flex;align-items:center;padding:150px 0 90px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+  .badge{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;padding:9px 16px;border-radius:100px;border:1px solid rgba(255,106,26,.35);background:rgba(255,106,26,.08);color:var(--amber);margin-bottom:26px}
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,106,26,.6)}70%{box-shadow:0 0 0 9px rgba(255,106,26,0)}100%{box-shadow:0 0 0 0 rgba(255,106,26,0)}}
+  .hero h1{font-size:clamp(46px,7.5vw,92px);margin-bottom:22px}
+  .hero h1 .l{display:block;overflow:hidden}
+  .hero h1 .l span{display:block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+  .hero h1 .l:nth-child(2) span{animation-delay:.12s}
+  @keyframes rise{to{transform:translateY(0)}}
+  .hero .tag{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(18px,2.4vw,24px);color:var(--ink-soft);margin-bottom:30px;opacity:0;animation:fade 1s ease .45s forwards}
+  @keyframes fade{to{opacity:1}}
+  .hero .actions{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fade 1s ease .65s forwards}
+  .hero .actions .btn{padding:16px 30px;font-size:16px}
+  .hero-img{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--line);opacity:0;animation:fade 1.1s ease .5s forwards;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .hero-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.05);transition:transform 8s ease}
+  .hero-img:hover img{transform:scale(1.15)}
+  .hero-img .ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,7,5,.85))}
+  .hero-img .float{position:absolute;left:20px;bottom:20px;right:20px;display:flex;gap:10px;flex-wrap:wrap}
+  .hero-img .chip{background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:14px;padding:10px 14px}
+  .hero-img .chip b{display:block;font-size:18px;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-img .chip small{font-size:11px;color:var(--ink-faint);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+
+  /* STAT BAR */
+  .statbar{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(0,0,0,.25)}
+  .statbar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .statbar .s{padding:30px 20px;border-left:1px solid var(--line);text-align:center}
+  .statbar .s:first-child{border-left:none}
+  .statbar .s b{display:block;font-size:clamp(26px,3.4vw,40px);font-weight:900;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+  .statbar .s small{font-size:12px;color:var(--ink-faint);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+
+  /* CAUSES */
+  .cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .ccard{border:1px solid var(--line);border-radius:var(--r);padding:30px 24px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,0));transition:.4s}
+  .ccard:hover{transform:translateY(-6px);border-color:rgba(255,106,26,.4)}
+  .ccard .ic{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;margin-bottom:22px}
+  .ccard .ic svg{width:24px;height:24px}
+  .ccard .n{font-family:'Fraunces',serif;font-style:italic;color:var(--orange-2);font-size:15px;margin-bottom:6px}
+  .ccard h3{font-size:18px;margin-bottom:10px}
+  .ccard p{font-size:14px;color:var(--ink-soft)}
+  .c-orange{background:rgba(255,106,26,.14);color:var(--orange-2)}.c-green{background:rgba(39,192,138,.14);color:var(--green)}
+  .c-magenta{background:rgba(255,77,141,.14);color:var(--magenta)}.c-amber{background:rgba(255,194,75,.14);color:var(--amber)}
+
+  /* SPLIT FEATURE */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .split .imgwrap{border-radius:var(--r);overflow:hidden;aspect-ratio:1;border:1px solid var(--line);position:relative}
+  .split .imgwrap img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+  .split .imgwrap:hover img{transform:scale(1.08)}
+  .split h2{font-size:clamp(30px,4.2vw,52px)}
+  .split p{color:var(--ink-soft);font-size:17px;margin-top:20px}
+  .pull{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(20px,2.6vw,28px);line-height:1.3;border-left:3px solid var(--orange);padding-left:22px;margin-top:30px}
+
+  /* BENEFITS */
+  .ben3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .bcard{border:1px solid var(--line);border-radius:18px;padding:34px 28px;background:rgba(255,255,255,.02);transition:.35s}
+  .bcard:hover{background:rgba(255,106,26,.06);border-color:rgba(255,106,26,.3);transform:translateY(-5px)}
+  .bcard .ck{width:46px;height:46px;border-radius:13px;background:var(--grad);display:grid;place-items:center;color:#1a0d03;margin-bottom:20px;font-size:22px}
+  .bcard h3{font-size:19px;margin-bottom:9px}.bcard p{font-size:14.5px;color:var(--ink-soft)}
+
+  /* TIERS */
+  .tiers{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:880px;margin:0 auto}
+  .tier{border:1px solid var(--line);border-radius:var(--r);padding:38px 34px;background:rgba(255,255,255,.02);position:relative;transition:.35s}
+  .tier:hover{transform:translateY(-4px)}
+  .tier.featured{border-color:rgba(255,106,26,.5);background:linear-gradient(170deg,rgba(255,106,26,.1),rgba(255,255,255,.01));box-shadow:0 24px 60px rgba(255,106,26,.16)}
+  .tier .tg{position:absolute;top:-13px;right:28px;background:var(--grad);color:#1a0d03;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border-radius:100px}
+  .tier h3{font-size:22px}
+  .tier .price{font-size:46px;font-weight:900;margin:12px 0 4px}.tier .price small{font-size:16px;color:var(--ink-faint);font-weight:600}
+  .tier ul{list-style:none;display:flex;flex-direction:column;gap:13px;margin:22px 0 28px}
+  .tier li{display:flex;gap:11px;font-size:14.5px;color:var(--ink-soft)}
+  .tier li svg{width:18px;height:18px;color:var(--green);flex:none;margin-top:2px}
+  .tier .btn{width:100%;justify-content:center}
+
+  /* ===== EVENTS PAGE ===== */
+  .pagehero{padding:170px 0 70px;text-align:center}
+  .pagehero h1{font-size:clamp(40px,7vw,86px);margin:18px 0}
+  .pagehero p{color:var(--ink-soft);font-size:clamp(16px,2vw,20px);max-width:600px;margin:0 auto}
+  /* featured event banner */
+  .feat{border-radius:26px;overflow:hidden;position:relative;border:1px solid var(--line);min-height:420px;display:flex;align-items:flex-end}
+  .feat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 6s ease}
+  .feat:hover img{transform:scale(1.14)}
+  .feat .ov{position:absolute;inset:0;background:linear-gradient(110deg,rgba(10,7,5,.92) 20%,rgba(10,7,5,.4) 70%,transparent)}
+  .feat .body{position:relative;padding:48px;max-width:620px}
+  .feat .live{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:16px}
+  .feat .live .d{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.8s infinite}
+  .feat h2{font-size:clamp(30px,4.5vw,52px)}
+  .feat .meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin:20px 0 26px;color:var(--ink-soft);font-size:14.5px;font-weight:600}
+  .feat .meta span{display:flex;align-items:center;gap:8px}
+
+  /* coming soon grid */
+  .ev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .ev{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:rgba(255,255,255,.02);transition:.4s;cursor:default}
+  .ev:hover{transform:translateY(-7px);border-color:rgba(255,106,26,.4);box-shadow:0 24px 50px rgba(0,0,0,.4)}
+  .ev .top{height:160px;position:relative;overflow:hidden;display:grid;place-items:center}
+  .ev .top svg{width:60px;height:60px;opacity:.85;transition:.5s;z-index:2}
+  .ev:hover .top svg{transform:scale(1.15) rotate(-4deg)}
+  .ev .top::before{content:"";position:absolute;inset:0;opacity:.5;transition:.5s}
+  .ev:hover .top::before{opacity:.8;transform:scale(1.1)}
+  .ev.e1 .top::before{background:radial-gradient(circle at 50% 40%,rgba(255,106,26,.5),transparent 70%)}
+  .ev.e2 .top::before{background:radial-gradient(circle at 50% 40%,rgba(39,192,138,.45),transparent 70%)}
+  .ev.e3 .top::before{background:radial-gradient(circle at 50% 40%,rgba(255,77,141,.45),transparent 70%)}
+  .ev.e4 .top::before{background:radial-gradient(circle at 50% 40%,rgba(255,194,75,.45),transparent 70%)}
+  .ev .soon{position:absolute;top:14px;left:14px;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--glass);backdrop-filter:blur(8px);border:1px solid var(--line);padding:6px 11px;border-radius:100px;color:var(--amber);z-index:3}
+  .ev .info{padding:24px}
+  .ev .info .date{font-size:12.5px;font-weight:700;color:var(--orange-2);letter-spacing:.04em;margin-bottom:8px}
+  .ev .info h3{font-size:19px;margin-bottom:10px}
+  .ev .info p{font-size:14px;color:var(--ink-soft)}
+  .ev .info .loc{margin-top:16px;font-size:13px;color:var(--ink-faint);display:flex;align-items:center;gap:7px}
+
+  /* past events */
+  .past{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .pcard{border:1px solid var(--line);border-radius:18px;padding:28px;background:rgba(255,255,255,.02);transition:.35s}
+  .pcard:hover{border-color:rgba(255,106,26,.3);transform:translateY(-4px)}
+  .pcard .yr{font-family:'Fraunces',serif;font-style:italic;font-size:30px;color:var(--orange-2)}
+  .pcard h3{font-size:18px;margin:8px 0 10px}
+  .pcard p{font-size:14px;color:var(--ink-soft)}
+  .pcard .st{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:flex;gap:18px}
+  .pcard .st b{font-size:18px;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .pcard .st small{display:block;font-size:11px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em}
+
+  /* GALLERY */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px}
+  .g{border-radius:16px;overflow:hidden;position:relative;cursor:pointer;border:1px solid var(--line)}
+  .g.tall{grid-row:span 2}.g.wide{grid-column:span 2}
+  .g img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.8,.2,1),filter .5s;filter:saturate(.85)}
+  .g:hover img{transform:scale(1.12);filter:saturate(1.1)}
+  .g .cap{position:absolute;inset:auto 0 0 0;padding:18px 16px 14px;background:linear-gradient(transparent,rgba(10,7,5,.9));transform:translateY(8px);opacity:0;transition:.4s;font-weight:700;font-size:14px}
+  .g:hover .cap{transform:none;opacity:1}
+  .g::after{content:"⤢";position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;background:var(--glass);backdrop-filter:blur(8px);display:grid;place-items:center;font-size:14px;opacity:0;transform:scale(.7);transition:.35s;border:1px solid var(--line)}
+  .g:hover::after{opacity:1;transform:none}
+
+  /* LIGHTBOX */
+  .lb{position:fixed;inset:0;z-index:200;background:rgba(5,3,2,.92);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;padding:30px;opacity:0;transition:.35s}
+  .lb.show{display:flex;opacity:1}
+  .lb img{max-width:90vw;max-height:85vh;border-radius:16px;transform:scale(.92);transition:.4s cubic-bezier(.2,.9,.2,1);box-shadow:0 30px 90px rgba(0,0,0,.6)}
+  .lb.show img{transform:scale(1)}
+  .lb .x{position:absolute;top:24px;right:28px;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--glass);color:var(--ink);font-size:24px;cursor:pointer}
+
+  /* CTA banner */
+  .ctaband{border-radius:28px;padding:64px 48px;background:linear-gradient(135deg,rgba(255,106,26,.14),rgba(255,77,141,.08));border:1px solid rgba(255,106,26,.28);text-align:center}
+  .ctaband h2{font-size:clamp(30px,4.5vw,52px)}
+  .ctaband p{color:var(--ink-soft);margin:14px auto 34px;max-width:520px}
+
+  /* ===== ABOUT ===== */
+  .vals{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .val{border:1px solid var(--line);border-radius:18px;padding:30px;background:rgba(255,255,255,.02);transition:.35s}
+  .val:hover{transform:translateY(-5px);border-color:rgba(255,106,26,.3)}
+  .val .n{font-family:'Fraunces',serif;font-style:italic;color:var(--orange-2);font-size:18px;margin-bottom:14px}
+  .val h3{font-size:19px;margin-bottom:9px}.val p{font-size:14.5px;color:var(--ink-soft)}
+  .timeline{max-width:760px;margin:0 auto;position:relative;padding-left:40px}
+  .timeline::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--orange),transparent)}
+  .tl{position:relative;padding:0 0 40px}
+  .tl::before{content:"";position:absolute;left:-34px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--grad);box-shadow:0 0 0 5px rgba(255,106,26,.15)}
+  .tl b{font-family:'Fraunces',serif;font-style:italic;color:var(--orange-2);font-size:18px}
+  .tl h4{font-size:18px;margin:4px 0 6px}.tl p{font-size:14.5px;color:var(--ink-soft)}
+
+  /* ===== REGISTER ===== */
+  .reg-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .summary{border:1px solid var(--line);border-radius:var(--r);padding:34px;background:rgba(255,255,255,.02);position:sticky;top:100px}
+  .summary h3{font-size:20px;margin-bottom:20px}
+  .summary .row{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+  .summary .row span:first-child{color:var(--ink-faint)}
+  .summary .row b{font-weight:700}
+  .summary .incl{margin-top:22px}
+  .summary .incl div{display:flex;gap:10px;font-size:14px;color:var(--ink-soft);margin-bottom:11px}
+  .summary .incl svg{width:17px;height:17px;color:var(--green);flex:none;margin-top:2px}
+  .form{border:1px solid var(--line);border-radius:var(--r);padding:34px;background:rgba(255,255,255,.02)}
+  .field{margin-bottom:20px}
+  .field label{display:block;font-size:13px;font-weight:700;color:var(--ink-soft);margin-bottom:8px;letter-spacing:.02em}
+  .field input,.field select{width:100%;background:rgba(0,0,0,.3);border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--ink);font-family:inherit;font-size:15px;transition:.25s}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--orange);background:rgba(255,106,26,.05)}
+  .cat-pick{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .cat{border:1px solid var(--line);border-radius:14px;padding:16px;cursor:pointer;transition:.25s;text-align:center}
+  .cat.sel{border-color:var(--orange);background:rgba(255,106,26,.1)}
+  .cat b{display:block;font-size:16px}.cat small{color:var(--ink-faint);font-size:12px}
+  .trustrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;justify-content:center}
+  .trustrow span{font-size:12px;color:var(--ink-faint);display:flex;align-items:center;gap:6px}
+
+  /* FAQ */
+  .faq{max-width:820px;margin:0 auto}
+  .qa{border-bottom:1px solid var(--line)}
+  .qa button{width:100%;text-align:left;background:none;border:none;color:var(--ink);font-family:inherit;font-size:18px;font-weight:700;padding:24px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px}
+  .qa .ico{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:18px;transition:.3s;color:var(--orange-2)}
+  .qa.open .ico{transform:rotate(45deg);background:var(--orange);color:#1a0d03;border-color:var(--orange)}
+  .qa .ans{max-height:0;overflow:hidden;transition:max-height .4s ease;color:var(--ink-soft);font-size:15.5px}
+  .qa .ans p{padding-bottom:24px}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:64px 0 36px;background:rgba(0,0,0,.35)}
+  .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;margin-bottom:46px}
+  footer img.flogo{height:46px;margin-bottom:16px}
+  footer .about p{color:var(--ink-soft);font-size:14.5px;max-width:320px}
+  footer h5{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:18px;font-weight:700}
+  footer ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+  footer a,footer li{font-size:14.5px;color:var(--ink-soft);transition:.2s;cursor:pointer}
+  footer a:hover{color:var(--orange-2)}
+  .fbot{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--ink-faint)}
+
+  @media(max-width:920px){
+    .hero-grid,.split,.reg-grid{grid-template-columns:1fr;gap:40px}
+    .cards4,.ev-grid,.past,.gallery,.vals,.ben3{grid-template-columns:repeat(2,1fr)}
+    .gallery{grid-auto-rows:160px}.g.wide{grid-column:span 1}
+    .summary{position:static}.hero-img{order:-1}
+  }
+  @media(max-width:640px){
+    .navlinks{display:none}.navtoggle{display:grid;place-items:center}
+    .navlinks.mobile{display:flex;position:fixed;inset:72px 14px auto 14px;flex-direction:column;background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--line);border-radius:20px;padding:22px;gap:18px;z-index:70}
+    .nav-reg{display:none}
+    .statbar .wrap{grid-template-columns:1fr 1fr}.statbar .s:nth-child(3){border-left:none}
+    .cards4,.ev-grid,.past,.gallery,.vals,.ben3,.tiers,.cat-pick{grid-template-columns:1fr}
+    .sec{padding:74px 0}.wrap{padding:0 20px}.feat .body{padding:30px 24px}.ctaband{padding:42px 24px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="navinner">
+    <div class="brand" data-page="home">
+      <img src="https://www.ananthapoola.org/img/Logo.png" alt="Anantha Poolla Foundation">
+    </div>
+    <div class="navlinks" id="navlinks">
+      <a data-page="events">Events</a>
+      <a data-page="about">About</a>
+      <a data-page="register">Register</a>
+    </div>
+    <button class="btn nav-reg" data-page="register">Register Now
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#1a0d03" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="navtoggle" id="navtoggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- ================= HOME ================= -->
+<main class="page active" id="home">
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="badge"><span class="dot"></span> Official India Book of Records Attempt · 2026 🇮🇳</span>
+        <h1>
+          <span class="l"><span>Run For A Cause.</span></span>
+          <span class="l"><span class="grad">Leave A Legacy.</span></span>
+        </h1>
+        <p class="tag">"Let's create history together."</p>
+        <div class="actions">
+          <button class="btn" data-page="register">Register Today
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#1a0d03" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="btn ghost" data-page="events">Explore Events</button>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="https://www.ananthapoola.org/img/main_imgg.jpg" alt="Runner">
+        <div class="ov"></div>
+        <div class="float">
+          <div class="chip"><b>June 28</b><small>Event Date</small></div>
+          <div class="chip"><b>5,000</b><small>Runners</small></div>
+          <div class="chip"><b>₹499</b><small>From Only</small></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="statbar">
+    <div class="wrap">
+      <div class="s"><b data-count="5000">0</b><small>Participants</small></div>
+      <div class="s"><b data-count="4">0</b><small>Causes</small></div>
+      <div class="s"><b>₹499</b><small>From Only</small></div>
+      <div class="s"><b>Jun 28</b><small>Event Date</small></div>
+    </div>
+  </div>
+
+  <!-- causes -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow c">Run for a cause</span>
+        <h2>Your Run <span class="em grad">Matters</span></h2>
+        <p>Every registration fee goes directly toward these four causes — making your run truly count.</p>
+      </div>
+      <div class="cards4">
+        <div class="ccard reveal" data-d="1"><div class="ic c-orange"><svg viewBox="0 0 24 24" fill="none"><path d="M5 11h14l-1 9H6l-1-9Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 11V8a4 4 0 018 0v3" stroke="currentColor" stroke-width="1.7"/></svg></div><div class="n">01</div><h3>Food Distribution</h3><p>Nutritious meals for the hungry — feeding families and communities in need.</p></div>
+        <div class="ccard reveal" data-d="2"><div class="ic c-green"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-9-9.5C1.5 7 4 4 7 4c2 0 3.5 1.5 5 3.5C18.5 1 23 6 22 11c-1.5 4.5-10 10-10 10Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div><div class="n">02</div><h3>Mega Health Camp</h3><p>Free medical checkups and healthcare services for underprivileged communities.</p></div>
+        <div class="ccard reveal" data-d="3"><div class="ic c-magenta"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M12 12v9M9 18h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div><div class="n">03</div><h3>Sanitary Pad Distribution</h3><p>Women's hygiene support for underprivileged communities and rural areas.</p></div>
+        <div class="ccard reveal" data-d="4"><div class="ic c-amber"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h7v14H4zM13 5h7v14h-7z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div><div class="n">04</div><h3>Books & Pens for Students</h3><p>Educational supplies — books, pens and stationery for school children.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- record split -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap split">
+      <div class="imgwrap reveal"><img src="https://www.ananthapoola.org/img/5000_Runners.jpg" alt="5000 Runners"></div>
+      <div class="reveal" data-d="2">
+        <span class="eyebrow">Official attempt · India Book of Records 🇮🇳</span>
+        <h2 style="margin-top:18px">5000 Runners. <span class="em grad">One Historic Moment.</span></h2>
+        <p>Join 5,000 participants in creating an official India Book of Records entry — making history while making a difference for communities in need.</p>
+        <div class="pull">"Every step you take changes a life."</div>
+        <div style="margin-top:28px"><button class="btn" data-page="register">Be Part Of History</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- benefits -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow c">Participant benefits</span>
+        <h2>What You <span class="em grad">Receive</span></h2>
+      </div>
+      <div class="ben3">
+        <div class="bcard reveal" data-d="1"><div class="ck">👕</div><h3>Free T-Shirt</h3><p>Official Mega Charity Run 2026 event T-shirt for every participant.</p></div>
+        <div class="bcard reveal" data-d="2"><div class="ck">🏅</div><h3>Finisher Medal</h3><p>Commemorative medal awarded on crossing the finish line.</p></div>
+        <div class="bcard reveal" data-d="3"><div class="ck">📜</div><h3>Participation Certificate</h3><p>Official certificate from Anantha Poolla Foundation recognising your achievement.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- tiers -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow c">Entry fee</span>
+        <h2>Choose Your <span class="em grad">Category</span></h2>
+        <p>Limited to 5,000 participants only. Register early to secure your slot!</p>
+      </div>
+      <div class="tiers">
+        <div class="tier reveal" data-d="1">
+          <h3>General Entry</h3>
+          <div class="price">₹499</div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Free T-Shirt</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Finisher Medal</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Participation Certificate</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> India Book of Records Attempt</li>
+          </ul>
+          <button class="btn ghost" data-page="register">Register Now</button>
+        </div>
+        <div class="tier featured reveal" data-d="2">
+          <span class="tg">Most Popular</span>
+          <h3>VIP Entry</h3>
+          <div class="price">₹999</div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Everything in General</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> VIP Entry Privileges</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority Bib Collection</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> India Book of Records Attempt</li>
+          </ul>
+          <button class="btn" data-page="register">Register Now
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#1a0d03" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= EVENTS ================= -->
+<main class="page" id="events">
+  <section class="pagehero">
+    <div class="wrap">
+      <span class="eyebrow c reveal">Our initiatives</span>
+      <h1 class="reveal" data-d="1">Upcoming & <span class="em grad">Community Events</span></h1>
+      <p class="reveal" data-d="2">From a record-breaking charity run to ongoing camps and drives — here's where the movement shows up next.</p>
+    </div>
+  </section>
+
+  <!-- FEATURED -->
+  <section class="sec" style="padding-top:30px">
+    <div class="wrap">
+      <div class="feat reveal">
+        <img src="https://www.ananthapoola.org/img/5000_Runners.jpg" alt="Mega Charity Run 2026">
+        <div class="ov"></div>
+        <div class="body">
+          <span class="live"><span class="d"></span> Registration Open</span>
+          <h2>Mega Charity Run <span class="grad">2026</span></h2>
+          <div class="meta">
+            <span>📅 June 28, 2026 · 5:00 AM</span>
+            <span>📍 Kali Mata Temple</span>
+            <span>🏅 India Book of Records</span>
+          </div>
+          <button class="btn" data-page="register">Register Now
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#1a0d03" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMING SOON -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Coming soon</span>
+        <h2>More ways to <span class="em grad">show up</span></h2>
+        <p>Beyond the run, the foundation runs year-round programmes. Save the dates — registration opens closer to each event.</p>
+      </div>
+      <div class="ev-grid">
+        <div class="ev e2 reveal" data-d="1">
+          <div class="top"><span class="soon">Coming Soon</span><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-9-9.5C1.5 7 4 4 7 4c2 0 3.5 1.5 5 3.5C18.5 1 23 6 22 11c-1.5 4.5-10 10-10 10Z" stroke="#27c08a" stroke-width="1.6"/></svg></div>
+          <div class="info"><div class="date">JULY 2026</div><h3>Mega Health Camp</h3><p>Free medical checkups, diagnostics and consultations for underprivileged families.</p><div class="loc">📍 Kali Mata Temple Grounds</div></div>
+        </div>
+        <div class="ev e1 reveal" data-d="2">
+          <div class="top"><span class="soon">Coming Soon</span><svg viewBox="0 0 24 24" fill="none"><path d="M5 11h14l-1 9H6l-1-9Z" stroke="#ff9333" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 11V8a4 4 0 018 0v3" stroke="#ff9333" stroke-width="1.6"/></svg></div>
+          <div class="info"><div class="date">AUGUST 2026</div><h3>Food Distribution Drive</h3><p>Nutritious meal kits distributed to families and communities facing hardship.</p><div class="loc">📍 Multiple Localities</div></div>
+        </div>
+        <div class="ev e3 reveal" data-d="3">
+          <div class="top"><span class="soon">Coming Soon</span><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#ff4d8d" stroke-width="1.6"/><path d="M12 12v9M9 18h6" stroke="#ff4d8d" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+          <div class="info"><div class="date">SEPTEMBER 2026</div><h3>Sanitary Pad Awareness</h3><p>Hygiene workshops and free sanitary product distribution for rural women and girls.</p><div class="loc">📍 Rural Outreach Camps</div></div>
+        </div>
+        <div class="ev e4 reveal" data-d="1">
+          <div class="top"><span class="soon">Coming Soon</span><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h7v14H4zM13 5h7v14h-7z" stroke="#ffc24b" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <div class="info"><div class="date">OCTOBER 2026</div><h3>Books & Stationery Drive</h3><p>Books, pens and learning kits handed to school children to keep them in class.</p><div class="loc">📍 Government Schools</div></div>
+        </div>
+        <div class="ev e2 reveal" data-d="2">
+          <div class="top"><span class="soon">Coming Soon</span><svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M4 12h16" stroke="#27c08a" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="#27c08a" stroke-width="1.6"/></svg></div>
+          <div class="info"><div class="date">NOVEMBER 2026</div><h3>Blood Donation Camp</h3><p>A community blood-donation drive in partnership with local hospitals.</p><div class="loc">📍 Community Hall</div></div>
+        </div>
+        <div class="ev e1 reveal" data-d="3">
+          <div class="top"><span class="soon">Coming Soon</span><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 16.5 7.1 18.2l.9-5.5-4-3.9 5.5-.8L12 3Z" stroke="#ff9333" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+          <div class="info"><div class="date">DECEMBER 2026</div><h3>Winter Welfare Drive</h3><p>Blankets, warm clothing and essentials for families through the coldest months.</p><div class="loc">📍 Shelters & Streets</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAST EVENTS -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Past impact</span>
+        <h2>What we've already <span class="em grad">done together</span></h2>
+        <p>The Mega Charity Run is the next chapter — but the foundation has been showing up for years.</p>
+      </div>
+      <div class="past">
+        <div class="pcard reveal" data-d="1"><div class="yr">2025</div><h3>Community Health Camp</h3><p>A multi-village medical camp offering free screenings and consultations.</p><div class="st"><div><b>1,800+</b><small>Screened</small></div><div><b>12</b><small>Doctors</small></div></div></div>
+        <div class="pcard reveal" data-d="2"><div class="yr">2024</div><h3>Education Supplies Drive</h3><p>Books, pens and bags distributed across government schools.</p><div class="st"><div><b>2,400+</b><small>Students</small></div><div><b>20</b><small>Schools</small></div></div></div>
+        <div class="pcard reveal" data-d="3"><div class="yr">2023</div><h3>Food Relief Initiative</h3><p>Daily meal distribution for families through a period of hardship.</p><div class="st"><div><b>30,000+</b><small>Meals</small></div><div><b>40</b><small>Localities</small></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow c">Moments</span>
+        <h2>Event <span class="em grad">Gallery</span></h2>
+        <p>A glimpse of the people and moments behind the movement. Tap any image to enlarge.</p>
+      </div>
+      <div class="gallery reveal">
+        <div class="g wide"><img src="https://picsum.photos/seed/apf-run1/900/500" alt="Run"><div class="cap">Race day energy</div></div>
+        <div class="g tall"><img src="https://picsum.photos/seed/apf-camp2/600/900" alt="Health camp"><div class="cap">Health camp</div></div>
+        <div class="g"><img src="https://picsum.photos/seed/apf-food3/600/600" alt="Food drive"><div class="cap">Food drive</div></div>
+        <div class="g"><img src="https://picsum.photos/seed/apf-kids4/600/600" alt="Students"><div class="cap">Books for students</div></div>
+        <div class="g"><img src="https://picsum.photos/seed/apf-team5/600/600" alt="Volunteers"><div class="cap">Volunteer team</div></div>
+        <div class="g tall"><img src="https://picsum.photos/seed/apf-crowd6/600/900" alt="Crowd"><div class="cap">5,000 strong</div></div>
+        <div class="g wide"><img src="https://picsum.photos/seed/apf-finish7/900/500" alt="Finish line"><div class="cap">The finish line</div></div>
+        <div class="g"><img src="https://picsum.photos/seed/apf-medal8/600/600" alt="Medals"><div class="cap">Finisher medals</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap"><div class="ctaband reveal">
+      <span class="eyebrow c">Be part of it</span>
+      <h2 style="margin-top:14px">Join the next <span class="em grad">event</span></h2>
+      <p>The Mega Charity Run 2026 registration is open now. Secure your slot before the 5,000 fill up.</p>
+      <button class="btn" data-page="register">Register Now
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#1a0d03" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div></div>
+  </section>
+</main>
+
+<!-- ================= ABOUT ================= -->
+<main class="page" id="about">
+  <section class="pagehero">
+    <div class="wrap">
+      <span class="eyebrow c reveal">Who we are</span>
+      <h1 class="reveal" data-d="1">About Anantha <span class="em grad">Poolla Foundation</span></h1>
+      <p class="reveal" data-d="2">A community impact organization turning collective action into measurable change — making history while making a difference.</p>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:30px">
+    <div class="wrap split">
+      <div class="imgwrap reveal"><img src="https://www.ananthapoola.org/img/main_imgg.jpg" alt="Our work"></div>
+      <div class="reveal" data-d="2">
+        <span class="eyebrow">Our story</span>
+        <h2 style="margin-top:16px">Built on <span class="em grad">showing up.</span></h2>
+        <p>Anantha Poolla Foundation began with a simple belief: that everyday people, acting together, can solve problems that feel too big to face alone. From food relief to health camps to keeping children in school, we turn compassion into action on the ground.</p>
+        <p>The Mega Charity Run 2026 is our boldest chapter yet — uniting 5,000 people for an official India Book of Records attempt, with every rupee funding four real causes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="vals">
+        <div class="val reveal" data-d="1"><div class="n">Mission</div><h3>Action over intention</h3><p>To deliver direct, measurable support across food, health, hygiene and education for those who need it most.</p></div>
+        <div class="val reveal" data-d="2"><div class="n">Vision</div><h3>Compassion at scale</h3><p>A community where collective participation makes lasting change ordinary, not exceptional.</p></div>
+        <div class="val reveal" data-d="3"><div class="n">Values</div><h3>Trust & transparency</h3><p>Every contribution is accounted for, and impact is reported back to the community we serve.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head center reveal"><span class="eyebrow c">Our journey</span><h2>Milestones <span class="em grad">so far</span></h2></div>
+      <div class="timeline">
+        <div class="tl reveal"><b>2023</b><h4>Food Relief Initiative</h4><p>30,000+ meals distributed across 40 localities during a period of hardship.</p></div>
+        <div class="tl reveal" data-d="1"><b>2024</b><h4>Education Supplies Drive</h4><p>Books, pens and learning kits reached 2,400+ students across 20 schools.</p></div>
+        <div class="tl reveal" data-d="2"><b>2025</b><h4>Community Health Camps</h4><p>1,800+ people screened with free checkups, diagnostics and consultations.</p></div>
+        <div class="tl reveal" data-d="3"><b>2026</b><h4>Mega Charity Run</h4><p>An official India Book of Records attempt uniting 5,000 runners for four causes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap"><div class="ctaband reveal">
+      <span class="eyebrow c">Join our mission</span>
+      <h2 style="margin-top:14px">Be part of the <span class="em grad">movement</span></h2>
+      <p>Register for the Mega Charity Run 2026 and turn one morning into lasting impact.</p>
+      <button class="btn" data-page="register">Register Now</button>
+    </div></div>
+  </section>
+</main>
+
+<!-- ================= REGISTER ================= -->
+<main class="page" id="register">
+  <section class="pagehero" style="padding-bottom:30px">
+    <div class="wrap">
+      <span class="eyebrow c reveal">Secure your slot</span>
+      <h1 class="reveal" data-d="1">Register for the <span class="em grad">Run</span></h1>
+      <p class="reveal" data-d="2">Limited to 5,000 participants. Complete your details below — confirmation is instant.</p>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:20px">
+    <div class="wrap reg-grid">
+      <!-- form -->
+      <div class="form reveal">
+        <div class="field"><label>Choose your category</label>
+          <div class="cat-pick">
+            <div class="cat sel" data-cat="General" data-price="₹499"><b>General · ₹499</b><small>All essentials</small></div>
+            <div class="cat" data-cat="VIP" data-price="₹999"><b>VIP · ₹999</b><small>+ Priority perks</small></div>
+          </div>
+        </div>
+        <div class="field"><label>Full name</label><input type="text" placeholder="Your full name"></div>
+        <div class="field"><label>Mobile number</label><input type="tel" placeholder="10-digit mobile number"></div>
+        <div class="field"><label>Email address</label><input type="email" placeholder="you@example.com"></div>
+        <div class="field"><label>T-shirt size</label>
+          <select><option>S</option><option>M</option><option selected>L</option><option>XL</option><option>XXL</option></select>
+        </div>
+        <button class="btn" style="width:100%;justify-content:center;padding:16px" onclick="alert('Demo form — connect this to your payment gateway to go live.')">Complete Registration · Pay Securely</button>
+        <div class="trustrow">
+          <span>🔒 Secure payment</span><span>⚡ Instant confirmation</span><span>💯 100% to charity</span>
+        </div>
+      </div>
+      <!-- summary -->
+      <div class="summary reveal" data-d="2">
+        <h3>Event Summary</h3>
+        <div class="row"><span>Event</span><b>Mega Charity Run 2026</b></div>
+        <div class="row"><span>Date</span><b>June 28, 2026 · 5:00 AM</b></div>
+        <div class="row"><span>Venue</span><b>Kali Mata Temple</b></div>
+        <div class="row"><span>Category</span><b id="sumCat">General</b></div>
+        <div class="row"><span>Amount</span><b id="sumPrice" class="grad" style="font-size:18px">₹499</b></div>
+        <div class="incl" style="margin-top:24px">
+          <div><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Official event T-shirt</div>
+          <div><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Finisher medal</div>
+          <div><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Participation certificate</div>
+          <div><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> India Book of Records attempt</div>
+        </div>
+        <div style="margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-faint)">
+          Need help? Call / WhatsApp <b style="color:var(--orange-2)">7702208128</b>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head center reveal"><span class="eyebrow c">Good questions</span><h2>Before you <span class="em grad">register</span></h2></div>
+      <div class="faq">
+        <div class="qa reveal"><button>Who can participate?<span class="ico">+</span></button><div class="ans"><p>Everyone — runners, walkers, families and first-timers. Minors can join with a registered guardian. If you can show up, you can be part of the record.</p></div></div>
+        <div class="qa reveal"><button>What's included in my entry?<span class="ico">+</span></button><div class="ans"><p>An official T-shirt, finisher medal, participation certificate and recognition as part of the India Book of Records attempt — plus VIP privileges and priority bib collection for VIP entries.</p></div></div>
+        <div class="qa reveal"><button>When and where is the event?<span class="ico">+</span></button><div class="ans"><p>June 28, 2026 (Sunday). Reporting time is 5:00 AM at Kali Mata Temple.</p></div></div>
+        <div class="qa reveal"><button>Where does my money go?<span class="ico">+</span></button><div class="ans"><p>Every registration fee goes directly toward four causes: food distribution, the mega health camp, sanitary pad distribution, and books & pens for students.</p></div></div>
+        <div class="qa reveal"><button>How do I register?<span class="ico">+</span></button><div class="ans"><p>Pick a category above, fill in your details and complete a secure payment. You can also call or WhatsApp 7702208128 to register.</p></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="about">
+        <img class="flogo" src="https://www.ananthapoola.org/img/Logo.png" alt="Anantha Poolla Foundation">
+        <p>Making history while making a difference. Join 5,000 runners in the official India Book of Records attempt and support four incredible causes.</p>
+      </div>
+      <div><h5>Explore</h5><ul><li data-page="events">Events</li><li data-page="about">About</li><li data-page="register">Register</li></ul></div>
+      <div><h5>Contact</h5><ul><li>📞 7702208128</li><li>📍 Kali Mata Temple</li><li>📅 June 28, 2026 · 5:00 AM</li></ul></div>
+    </div>
+    <div class="fbot">
+      <span>© 2026 Anantha Poolla Foundation. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Service · Refund Policy</span>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb"><button class="x" id="lbx">×</button><img id="lbimg" src="" alt="Gallery image"></div>
+
+<script>
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+
+  // mobile menu
+  const tog=document.getElementById('navtoggle'),links=document.getElementById('navlinks');
+  tog.addEventListener('click',()=>links.classList.toggle('mobile'));
+
+  // reveal
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  function observeReveals(scope){(scope||document).querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));}
+
+  // count up
+  function runCounts(scope){
+    scope.querySelectorAll('[data-count]:not([data-done])').forEach(el=>{
+      el.dataset.done=1;const target=+el.dataset.count;let start=null,dur=1500;
+      const fmt=n=>n>=1000?Math.round(n).toLocaleString('en-IN'):Math.round(n);
+      const step=t=>{if(!start)start=t;const p=Math.min((t-start)/dur,1);el.textContent=fmt(target*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step);};
+      requestAnimationFrame(step);
+    });
+  }
+
+  // PAGE SWITCH
+  function showPage(id){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    const pg=document.getElementById(id);if(!pg)return;
+    pg.classList.add('active');
+    document.querySelectorAll('.navlinks a').forEach(a=>a.classList.toggle('active',a.dataset.page===id));
+    window.scrollTo({top:0,behavior:'instant'});
+    links.classList.remove('mobile');
+    observeReveals(pg);
+    if(id==='home')runCounts(pg);
+  }
+  document.querySelectorAll('[data-page]').forEach(el=>el.addEventListener('click',()=>showPage(el.dataset.page)));
+
+  // FAQ (event-delegated so it works across pages)
+  document.addEventListener('click',e=>{
+    const b=e.target.closest('.qa button');if(!b)return;
+    const qa=b.parentElement,ans=qa.querySelector('.ans'),open=qa.classList.contains('open');
+    qa.parentElement.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');x.querySelector('.ans').style.maxHeight=null;});
+    if(!open){qa.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+  });
+
+  // lightbox
+  const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');
+  document.addEventListener('click',e=>{const g=e.target.closest('.g');if(!g)return;lbimg.src=g.querySelector('img').src;lb.classList.add('show');});
+  document.getElementById('lbx').addEventListener('click',()=>lb.classList.remove('show'));
+  lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('show');});
+
+  // register category selector
+  document.querySelectorAll('.cat').forEach(c=>c.addEventListener('click',()=>{
+    document.querySelectorAll('.cat').forEach(x=>x.classList.remove('sel'));c.classList.add('sel');
+    document.getElementById('sumCat').textContent=c.dataset.cat;
+    document.getElementById('sumPrice').textContent=c.dataset.price;
+  }));
+
+  // init
+  observeReveals(document.getElementById('home'));
+  runCounts(document.getElementById('home'));
+</script>
+</body>
+</html>
